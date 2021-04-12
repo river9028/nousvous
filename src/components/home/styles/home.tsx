@@ -13,6 +13,11 @@ export const Container = styled.div`
   left: 35px;
   width: calc(100vw - 35px);
   height: 100%;
+
+  @media (min-width: 45em) {
+    left: 50px;
+    width: calc(100vw - 50px);
+  }
 `;
 
 export const Pane = styled.div`

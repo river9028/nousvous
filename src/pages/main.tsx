@@ -1,5 +1,5 @@
 import React from 'react';
-import { Home, PressButton } from '../components';
+import { Footer, Home, PressButton } from '../components';
 
 const Main = () => {
   return (
@@ -36,6 +36,24 @@ const Main = () => {
             <Home.Background src='images/background/william-luz.jpg' />
           </Home.Group>
         </Home.Pane>
+
+        <Footer>
+          <Footer.Frame>
+            <Footer.Group>
+              <Footer.Form>
+                <label>
+                  mailing list
+                  <Footer.Input />
+                </label>
+              </Footer.Form>
+            </Footer.Group>
+
+            <Footer.Group>
+              <Footer.Button>twitter</Footer.Button>
+              <Footer.Button>instagram</Footer.Button>
+            </Footer.Group>
+          </Footer.Frame>
+        </Footer>
       </Home>
     </>
   );
