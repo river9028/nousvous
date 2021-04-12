@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { Link as ReachRouterLink } from 'react-router-dom';
 
 type Background = {
   src?: string;

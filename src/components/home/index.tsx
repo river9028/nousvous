@@ -19,10 +19,14 @@ type Background = {
   isVideo?: boolean;
 };
 
+type TextLink = {
+  // to: string;
+};
+
 type Home = {
   Group: React.FC;
   Pane: React.FC;
-  TextLink: React.FC;
+  TextLink: React.FC<TextLink>;
   Background: React.FC<Background>;
 };
 
@@ -56,13 +60,9 @@ const HomeTextLink: React.FC = ({ children, ...restProps }) => {
   return (
     <Text
       onMouseEnter={() => {
-        // 해당 배경화면의 CSS opacity: 1로 추가
-        console.log('enter');
         setShowBackground(true);
       }}
       onMouseLeave={() => {
-        // 해당 배경화면의 CSS opacity: 0으로 다시 변경
-        console.log('leave');
         setShowBackground(false);
       }}
       {...restProps}
