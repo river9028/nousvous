@@ -1,5 +1,6 @@
 import React from 'react';
-import { Footer, Home, PressButton } from '../components';
+import { Popup, PressButton } from '../components';
+import { HomeContainer } from '../containers';
 
 const Main = () => {
   return (
@@ -13,48 +14,25 @@ const Main = () => {
         <PressButton.Logo src='/images/logo/nvpress.svg' />
       </PressButton>
 
-      <Home>
-        <Home.Pane>
-          <Home.Group>
-            <Home.TextLink>Together</Home.TextLink>
-            <Home.Background isVideo src='videos/background/together.mp4' />
-          </Home.Group>
+      <HomeContainer />
 
-          <Home.Group>
-            <Home.TextLink>Nicolas Burrows</Home.TextLink>
-
-            <Home.Background src='images/background/nicolas-burrows.jpg' />
-          </Home.Group>
-
-          <Home.Group>
-            <Home.TextLink>Jay Cover</Home.TextLink>
-            <Home.Background src='images/background/jay-cover.jpg' />
-          </Home.Group>
-
-          <Home.Group>
-            <Home.TextLink>William Luz</Home.TextLink>
-            <Home.Background src='images/background/william-luz.jpg' />
-          </Home.Group>
-        </Home.Pane>
-
-        <Footer>
-          <Footer.Frame>
-            <Footer.Group>
-              <Footer.Form>
-                <label>
-                  mailing list
-                  <Footer.Input />
-                </label>
-              </Footer.Form>
-            </Footer.Group>
-
-            <Footer.Group>
-              <Footer.Button>twitter</Footer.Button>
-              <Footer.Button>instagram</Footer.Button>
-            </Footer.Group>
-          </Footer.Frame>
-        </Footer>
-      </Home>
+      <Popup>
+        <Popup.Close />
+        <Popup.Text>
+          Nous Vous is a collective of artists &amp; friends working together
+          since 2007.
+        </Popup.Text>
+        <Popup.Text>
+          Click on a name for individual portfolios. Select ‘Together’ to see
+          collaborative projects. The tab on the left takes you to Nous Vous
+          Press, where you can buy our books, prints and editions.
+        </Popup.Text>
+        <Popup.Text>
+          Thanks!
+          <br />
+          Will, Nic &amp; Jay
+        </Popup.Text>
+      </Popup>
     </>
   );
 };

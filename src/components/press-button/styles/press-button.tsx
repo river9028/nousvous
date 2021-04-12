@@ -1,6 +1,6 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
-export const Container = styled.div`
+export const Container = styled.div<{ showLoading: boolean }>`
   position: absolute;
   top: 0px;
   left: 0px;
@@ -24,15 +24,27 @@ export const Container = styled.div`
     height: 100%;
     top: 0px;
     left: 0px;
-    -webkit-transform: translate(-100%, 0px);
-    -ms-transform: translate(-100%, 0px);
     transform: translate(-100%, 0px);
     background: #000;
   }
 
   :hover {
-    transform: translate(10px, 0px);
+    ${({ showLoading }) =>
+      !showLoading &&
+      css`
+        transform: translate(10px, 0px);
+      `}
   }
+
+  ${({ showLoading }) =>
+    showLoading &&
+    css`
+      transform: translate(100vw, 0px);
+
+      ::before {
+        width: 100vw;
+      }
+    `}
 `;
 
 export const Caption = styled.div`

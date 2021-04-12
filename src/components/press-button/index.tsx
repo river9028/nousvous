@@ -11,7 +11,19 @@ type PressButton = {
 };
 
 const PressButton: React.FC & PressButton = ({ children, ...restProps }) => {
-  return <Container {...restProps}>{children}</Container>;
+  const [showLoading, setShowLoading] = useState(false);
+  return (
+    <Container
+      showLoading={showLoading}
+      onClick={() => {
+        console.log('clicked');
+        setShowLoading(true);
+      }}
+      {...restProps}
+    >
+      {children}
+    </Container>
+  );
 };
 
 const PressButtonCaption: React.FC = ({ children, ...restProps }) => {

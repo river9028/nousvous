@@ -1,3 +1,4 @@
 export { default as Home } from './home'
 export { default as PressButton } from './press-button'
 export { default as Footer } from './footer'
+export { default as Popup } from './popup'

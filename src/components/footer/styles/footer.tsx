@@ -49,6 +49,10 @@ export const Button = styled.button`
   border: 0;
   background: transparent;
 
+  &:focus {
+    outline: 0;
+  }
+
   ::after {
     content: '/';
   }
