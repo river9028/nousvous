@@ -1,5 +1,6 @@
 import React, { createContext, useContext, useState } from 'react';
 import { Container, Frame, Form, Input, Group, Button } from './styles/footer';
+import { SidePanelContext } from '../../context';
 
 type Footer = {
   Frame: React.FC;
@@ -34,7 +35,19 @@ const FooterGroup: React.FC = ({ children, ...restProps }) => {
 Footer.Group = FooterGroup;
 
 const FooterButton: React.FC = ({ children, ...restProps }) => {
-  return <Button {...restProps}>{children}</Button>;
+  const { setShowSidePanel } = useContext(SidePanelContext);
+
+  return (
+    <Button
+      onClick={(e) => {
+        e.preventDefault();
+        setShowSidePanel(true);
+      }}
+      {...restProps}
+    >
+      {children}
+    </Button>
+  );
 };
 Footer.Button = FooterButton;
 

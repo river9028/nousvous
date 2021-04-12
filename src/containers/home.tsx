@@ -1,7 +1,11 @@
-import React from 'react';
-import { Footer, Home } from '../components';
+import React, { useState } from 'react';
+import { Footer, Home, SidePanel } from '../components';
+import { SidePanelContext } from '../context';
 
 const HomeContainer = () => {
+  const [showInstagram, setShowInstagram] = useState(false);
+  const [showTwitter, setShowTwitter] = useState(false);
+
   return (
     <>
       <Home>
@@ -40,12 +44,52 @@ const HomeContainer = () => {
             </Footer.Group>
 
             <Footer.Group>
-              <Footer.Button>twitter</Footer.Button>
-              <Footer.Button>instagram</Footer.Button>
+              <SidePanelContext.Provider
+                value={{
+                  showSidePanel: showTwitter,
+                  setShowSidePanel: setShowTwitter,
+                }}
+              >
+                <Footer.Button>twitter</Footer.Button>
+              </SidePanelContext.Provider>
+              <SidePanelContext.Provider
+                value={{
+                  showSidePanel: showInstagram,
+                  setShowSidePanel: setShowInstagram,
+                }}
+              >
+                <Footer.Button>instagram</Footer.Button>
+              </SidePanelContext.Provider>
             </Footer.Group>
           </Footer.Frame>
         </Footer>
       </Home>
+
+      <SidePanel>
+        <SidePanelContext.Provider
+          value={{
+            showSidePanel: showInstagram,
+            setShowSidePanel: setShowInstagram,
+          }}
+        >
+          <SidePanel.Group>
+            <SidePanel.Close />
+            <SidePanel.TextLink>Follow us on Instagram</SidePanel.TextLink>
+          </SidePanel.Group>
+        </SidePanelContext.Provider>
+
+        <SidePanelContext.Provider
+          value={{
+            showSidePanel: showTwitter,
+            setShowSidePanel: setShowTwitter,
+          }}
+        >
+          <SidePanel.Group>
+            <SidePanel.Close />
+            <SidePanel.TextLink>Follow us on Twitter</SidePanel.TextLink>
+          </SidePanel.Group>
+        </SidePanelContext.Provider>
+      </SidePanel>
     </>
   );
 };
