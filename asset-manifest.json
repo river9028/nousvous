@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.js": "/nousvous/static/js/main.95a480bf.chunk.js",
+    "main.js.map": "/nousvous/static/js/main.95a480bf.chunk.js.map",
+    "runtime-main.js": "/nousvous/static/js/runtime-main.7f004151.js",
+    "runtime-main.js.map": "/nousvous/static/js/runtime-main.7f004151.js.map",
+    "static/css/2.679831fc.chunk.css": "/nousvous/static/css/2.679831fc.chunk.css",
+    "static/js/2.e2ed02b8.chunk.js": "/nousvous/static/js/2.e2ed02b8.chunk.js",
+    "static/js/2.e2ed02b8.chunk.js.map": "/nousvous/static/js/2.e2ed02b8.chunk.js.map",
+    "index.html": "/nousvous/index.html",
+    "static/css/2.679831fc.chunk.css.map": "/nousvous/static/css/2.679831fc.chunk.css.map",
+    "static/js/2.e2ed02b8.chunk.js.LICENSE.txt": "/nousvous/static/js/2.e2ed02b8.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.7f004151.js",
+    "static/css/2.679831fc.chunk.css",
+    "static/js/2.e2ed02b8.chunk.js",
+    "static/js/main.95a480bf.chunk.js"
+  ]
+}
