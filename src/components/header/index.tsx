@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { useHistory } from 'react-router';
+import { BioContext } from '../../context';
 import { Container, Back, Profile, Contact } from './styles/header';
 
 type Header = {
@@ -28,7 +29,18 @@ const HeaderBack: React.FC = ({ children, ...restProps }) => {
 Header.Back = HeaderBack;
 
 const HeaderProfile: React.FC = ({ children, ...restProps }) => {
-  return <Profile {...restProps}>{children}</Profile>;
+  const { setShowBio } = useContext(BioContext);
+
+  return (
+    <Profile
+      onClick={() => {
+        setShowBio(false);
+      }}
+      {...restProps}
+    >
+      {children}
+    </Profile>
+  );
 };
 Header.Profile = HeaderProfile;
 
