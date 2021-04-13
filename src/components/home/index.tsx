@@ -99,11 +99,15 @@ const HomeBackground: React.FC<Background> = ({
   return isVideo ? (
     <Background active={showBackground} backgroundColor='#ebd9c9'>
       <Video muted loop autoPlay>
-        <source src={src} type='video/mp4' />
+        <source src={`${process.env.PUBLIC_URL}/${src}`} type='video/mp4' />
       </Video>
     </Background>
   ) : (
-    <Background active={showBackground} src={src} {...restProps}>
+    <Background
+      active={showBackground}
+      src={`${process.env.PUBLIC_URL}/${src}`}
+      {...restProps}
+    >
       {children}
     </Background>
   );

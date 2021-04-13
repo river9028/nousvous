@@ -37,7 +37,7 @@ export const Close = styled.button`
   width: 20px;
   height: 20px;
   cursor: pointer;
-  background-image: url('images/icon/close-navy.svg');
+  background-image: url(${`${process.env.PUBLIC_URL}/images/icon/close-navy.svg`});
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;

@@ -45,7 +45,7 @@ PressButton.Caption = PressButtonCaption;
 const PressButtonLogo: React.FC<Logo> = ({ src, children, ...restProps }) => {
   return (
     <Logo {...restProps}>
-      <Image src={src} />
+      <Image src={`${process.env.PUBLIC_URL}/${src}`} />
     </Logo>
   );
 };
