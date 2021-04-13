@@ -4,7 +4,14 @@ import { HomeContainer } from '../containers';
 
 const Main = () => {
   return (
-    <>
+    <div
+      style={{
+        position: 'absolute',
+        width: '100vw',
+        height: '100vh',
+        overflow: 'hidden',
+      }}
+    >
       <PressButton>
         <PressButton.Caption>
           <b>Nous Vous Press</b>
@@ -33,7 +40,7 @@ const Main = () => {
           Will, Nic &amp; Jay
         </Popup.Text>
       </Popup>
-    </>
+    </div>
   );
 };
 export default Main;
