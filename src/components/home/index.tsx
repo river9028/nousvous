@@ -8,6 +8,7 @@ import {
   TextLink,
   Video,
 } from './styles/home';
+import * as ROUTES from '../../constants/routes';
 
 type HomeContext = {
   showBackground: boolean;
@@ -20,7 +21,7 @@ type Background = {
 };
 
 type TextLink = {
-  // to: string;
+  to: string;
 };
 
 type Home = {
@@ -54,7 +55,7 @@ const HomePane: React.FC = ({ children, ...restProps }) => {
 };
 Home.Pane = HomePane;
 
-const HomeTextLink: React.FC = ({ children, ...restProps }) => {
+const HomeTextLink: React.FC<TextLink> = ({ to, children, ...restProps }) => {
   const { setShowBackground } = useContext(HomeContext);
 
   return (
@@ -67,7 +68,7 @@ const HomeTextLink: React.FC = ({ children, ...restProps }) => {
       }}
       {...restProps}
     >
-      <TextLink>{children}</TextLink>
+      <TextLink to={`${ROUTES.PERSON}/${to}`}>{children}</TextLink>
     </Text>
   );
 };

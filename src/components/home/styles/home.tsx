@@ -84,7 +84,7 @@ export const Group = styled.div`
   }
 `;
 
-export const TextLink = styled.h1`
+export const TextLink = styled(ReachRouterLink)`
   font-size: 1.414rem;
   line-height: 1.4em;
   color: #000;

@@ -11,23 +11,22 @@ const HomeContainer = () => {
       <Home>
         <Home.Pane>
           <Home.Group>
-            <Home.TextLink>Together</Home.TextLink>
+            <Home.TextLink to='together'>Together</Home.TextLink>
             <Home.Background isVideo src='videos/background/together.mp4' />
           </Home.Group>
 
           <Home.Group>
-            <Home.TextLink>Nicolas Burrows</Home.TextLink>
-
+            <Home.TextLink to='nicolas-burrows'>Nicolas Burrows</Home.TextLink>
             <Home.Background src='images/background/nicolas-burrows.jpg' />
           </Home.Group>
 
           <Home.Group>
-            <Home.TextLink>Jay Cover</Home.TextLink>
+            <Home.TextLink to='jay-cover'>Jay Cover</Home.TextLink>
             <Home.Background src='images/background/jay-cover.jpg' />
           </Home.Group>
 
           <Home.Group>
-            <Home.TextLink>William Luz</Home.TextLink>
+            <Home.TextLink to='william-luz'>William Luz</Home.TextLink>
             <Home.Background src='images/background/william-luz.jpg' />
           </Home.Group>
         </Home.Pane>
@@ -74,7 +73,9 @@ const HomeContainer = () => {
         >
           <SidePanel.Group>
             <SidePanel.Close />
-            <SidePanel.TextLink>Follow us on Instagram</SidePanel.TextLink>
+            <SidePanel.TextLink href='https://www.instagram.com/nous_vous_collective/'>
+              Follow us on Instagram
+            </SidePanel.TextLink>
           </SidePanel.Group>
         </SidePanelContext.Provider>
 
@@ -86,7 +87,9 @@ const HomeContainer = () => {
         >
           <SidePanel.Group>
             <SidePanel.Close />
-            <SidePanel.TextLink>Follow us on Twitter</SidePanel.TextLink>
+            <SidePanel.TextLink href='https://twitter.com/nousvous'>
+              Follow us on Twitter
+            </SidePanel.TextLink>
           </SidePanel.Group>
         </SidePanelContext.Provider>
       </SidePanel>

@@ -1,5 +1,7 @@
 import React, { createContext, useContext, useState } from 'react';
+import { useHistory } from 'react-router';
 import { Container, Caption, Logo, Image } from './styles/press-button';
+import * as ROUTES from '../../constants/routes';
 
 type Logo = {
   src: string;
@@ -11,6 +13,7 @@ type PressButton = {
 };
 
 const PressButton: React.FC & PressButton = ({ children, ...restProps }) => {
+  const history = useHistory();
   const [showLoading, setShowLoading] = useState(false);
   return (
     <Container
@@ -18,6 +21,10 @@ const PressButton: React.FC & PressButton = ({ children, ...restProps }) => {
       onClick={() => {
         console.log('clicked');
         setShowLoading(true);
+
+        setTimeout(() => {
+          history.push(ROUTES.PRESS);
+        }, 2000);
       }}
       {...restProps}
     >

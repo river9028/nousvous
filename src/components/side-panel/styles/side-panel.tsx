@@ -19,6 +19,7 @@ export const Group = styled.div<Group>`
   transition: transform 0.3s ease;
   overflow: auto;
   padding: 30px;
+  box-sizing: border-box;
 
   transform: ${({ showSidePanel }) =>
     showSidePanel ? 'translate(0px, 0px)' : 'translate(100%, 0px)'};

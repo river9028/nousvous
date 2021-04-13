@@ -5,7 +5,7 @@ import { SidePanelContext } from '../../context';
 type SidePanel = {
   Group: React.FC;
   Close: React.FC;
-  TextLink: React.FC;
+  TextLink: React.FC<{ href: string }>;
 };
 
 const SidePanel: React.FC & SidePanel = ({ children, ...restProps }) => {
@@ -39,8 +39,16 @@ const SidePanelClose: React.FC = ({ children, ...restProps }) => {
 };
 SidePanel.Close = SidePanelClose;
 
-const SidePanelTextLink: React.FC = ({ children, ...restProps }) => {
-  return <TextLink {...restProps}>{children}</TextLink>;
+const SidePanelTextLink: React.FC<{ href: string }> = ({
+  href,
+  children,
+  ...restProps
+}) => {
+  return (
+    <TextLink href={href} target='_blank' {...restProps}>
+      {children}
+    </TextLink>
+  );
 };
 SidePanel.TextLink = SidePanelTextLink;
 
