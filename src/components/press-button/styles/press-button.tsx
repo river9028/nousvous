@@ -16,6 +16,7 @@ export const Container = styled.div<{ showLoading: boolean }>`
     width: 50px;
   }
 
+  // ::before 해당 요소 이전에, 첫 자식 요소를 하나 생성. | content: '' |와 함께 사용.
   ::before {
     content: '';
     display: block;

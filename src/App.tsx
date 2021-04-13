@@ -16,6 +16,7 @@ function App() {
           <Press />
         </Route>
 
+        {/* path parameter를 이용해 동적 라우팅 */}
         <Route exact path={`${ROUTES.PERSON}/:to`}>
           <Person />
         </Route>
@@ -24,6 +25,7 @@ function App() {
           <Main />
         </Route>
 
+        {/* 위 3가지 path에 해당하지 않는다면, 모두 다 ROUTES.MAIN로 리다이렉트 */}
         <Redirect to={{ pathname: ROUTES.MAIN }} />
       </Switch>
     </Router>

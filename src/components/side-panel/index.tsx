@@ -45,6 +45,7 @@ const SidePanelTextLink: React.FC<{ href: string }> = ({
   ...restProps
 }) => {
   return (
+    // 새 탭에서 뜰 수 있도록 target='_blank' 추가
     <TextLink href={href} target='_blank' {...restProps}>
       {children}
     </TextLink>

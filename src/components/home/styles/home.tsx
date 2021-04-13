@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import { Link as ReachRouterLink } from 'react-router-dom';
 
+// 받아올 Props의 타입을 정의
 type Background = {
   src?: string;
   backgroundColor?: string;
@@ -93,6 +94,7 @@ export const TextLink = styled(ReachRouterLink)`
   white-space: nowrap;
 `;
 
+// 제네릭을 이용해 정의한 Props 타입을 사용
 export const Background = styled.div<Background>`
   ${({ src, backgroundColor }) =>
     src
