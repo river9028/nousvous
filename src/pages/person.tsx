@@ -1,8 +1,9 @@
 import { type } from 'node:os';
 import React, { useState } from 'react';
 import { useParams } from 'react-router';
-import { Bio, Header } from '../components';
+import { Bio, Header, Projects } from '../components';
 import PersonInfo from '../fixtures/person-info';
+import ProjectsInfo from '../fixtures/projects';
 import { BioContext } from '../context';
 
 type Params = {
@@ -15,7 +16,7 @@ const Person = () => {
 
   console.log(
     `${to
-      .split('-')
+      .split(' ')
       .map((str) => `${str[0].toUpperCase() + str.slice(1)} `)}Page`,
   );
 
@@ -27,7 +28,9 @@ const Person = () => {
 
   type PersonInfoType = keyof typeof PersonInfo;
 
-  const person = PersonInfo[to.replaceAll('-', ' ')! as PersonInfoType];
+  const person = PersonInfo[to! as PersonInfoType];
+  // const projects = ProjectsInfo[to! as PersonInfoType];
+  const projects = ProjectsInfo.together;
 
   return (
     <BioContext.Provider value={{ showBio, setShowBio }}>
@@ -41,6 +44,12 @@ const Person = () => {
         <Bio.Close />
         <Bio.Text bio={person.bio} />
       </Bio>
+
+      <Projects>
+        {projects.map((item) => (
+          <Projects.Project item={item} />
+        ))}
+      </Projects>
     </BioContext.Provider>
   );
 };

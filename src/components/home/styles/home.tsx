@@ -92,6 +92,11 @@ export const TextLink = styled(ReachRouterLink)`
   font-weight: bold;
   text-decoration: none;
   white-space: nowrap;
+
+  @media (min-width: 45em) {
+    font-size: 2.82715rem;
+    line-height: 1.4em;
+  }
 `;
 
 // 제네릭을 이용해 정의한 Props 타입을 사용
