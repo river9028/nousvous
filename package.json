@@ -1,6 +1,6 @@
 {
   "name": "nousvous",
-	"homepage": "http://river9028.github.io/nousvous",
+  "homepage": "http://river9028.github.io/nousvous",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -17,6 +17,7 @@
     "react-dom": "^17.0.2",
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.3",
+    "react-slick": "^0.28.1",
     "styled-components": "^5.2.3",
     "typescript": "^4.2.4",
     "web-vitals": "^1.0.1"
@@ -26,8 +27,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-		"predeploy": "npm run build",
-  	"deploy": "gh-pages -d build"
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [

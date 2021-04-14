@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components';
 
-export const Container = styled.div`
+export const Container = styled.div<{ active: boolean }>`
   text-align: center;
   padding: 25px;
   font-size: 0px;
@@ -14,9 +14,16 @@ export const Container = styled.div`
     padding: 40px;
     padding-top: 60px;
   }
+  ${({ active }) =>
+    active &&
+    css`
+      transform: scale(0.95);
+      opacity: 0;
+      transition-delay: 0s;
+    `}
 `;
 
-export const Project = styled.div<{ thumbSize: 'small' | 'medium' | 'large' }>`
+export const Card = styled.div<{ thumbSize: 'small' | 'medium' | 'large' }>`
   display: inline-block;
   padding: 30px;
 
@@ -52,7 +59,7 @@ export const Thumbnail = styled.img`
   height: auto;
 `;
 
-export const TitleWrap = styled.div<{ backgroundColor: string }>`
+export const TitleWrap = styled.a<{ backgroundColor: string }>`
   position: absolute;
   top: 0px;
   left: 0px;
@@ -79,6 +86,7 @@ export const Title = styled.h1`
   color: #fff;
   font-weight: bold;
   width: 100%;
+  margin: 0;
 
   @media (min-width: 45em) {
     font-size: 1.9994rem;

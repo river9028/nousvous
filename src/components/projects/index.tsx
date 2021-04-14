@@ -1,18 +1,19 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { ProjectContext } from '../../context';
 import {
   Container,
-  Project,
+  Card,
   Group,
   Thumbnail,
   TitleWrap,
   Title,
 } from './styles/projects';
 
-type Project = {
+type Card = {
   item: {
     id: number;
     title: string;
-    subTitle: string;
+    caption: string;
     thumb: string;
     slides: string[];
     'thumb-size': string;
@@ -21,33 +22,44 @@ type Project = {
 };
 
 type Projects = {
-  Project: React.FC<Project>;
+  Card: React.FC<Card>;
 };
 
 const Projects: React.FC & Projects = ({ children, ...restProps }) => {
-  return <Container {...restProps}>{children}</Container>;
+  const { showProject } = useContext(ProjectContext);
+  return (
+    <Container active={showProject} {...restProps}>
+      {children}
+    </Container>
+  );
 };
 
-const ProjectsProject: React.FC<Project> = ({
-  item,
-  children,
-  ...restProps
-}) => {
+const ProjectsCard: React.FC<Card> = ({ item, children, ...restProps }) => {
+  const { setShowProject, setCurrentProject } = useContext(ProjectContext);
   return (
-    <Project
+    <Card
       thumbSize={item['thumb-size']! as 'small' | 'medium' | 'large'}
       {...restProps}
     >
       <Group>
         <Thumbnail src={`${process.env.PUBLIC_URL}/${item.thumb}`} />
-        <TitleWrap backgroundColor={item['background-color']}>
+        <TitleWrap
+          href=''
+          onClick={(e) => {
+            document.body.style.overflow = 'hidden';
+            e.preventDefault();
+            setCurrentProject(item);
+            setShowProject(true);
+          }}
+          backgroundColor={item['background-color']}
+        >
           <Title>{item.title}</Title>
         </TitleWrap>
       </Group>
       {children}
-    </Project>
+    </Card>
   );
 };
-Projects.Project = ProjectsProject;
+Projects.Card = ProjectsCard;
 
 export default Projects;
