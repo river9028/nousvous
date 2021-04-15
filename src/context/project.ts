@@ -5,7 +5,7 @@ type Item = {
 	title: string;
 	caption: string;
 	thumb: string;
-	slides: string[];
+	slides: { type: string; src: string }[];
 	'thumb-size': string;
 	'background-color': string;
 };
@@ -15,6 +15,8 @@ type ProjectContext = {
 	setShowProject: React.Dispatch<React.SetStateAction<boolean>>;
 	currentProject: Item | null;
 	setCurrentProject: React.Dispatch<React.SetStateAction<Item | null>>;
+	infoRef: React.MutableRefObject<HTMLDivElement | null>
+	contentsRef: React.MutableRefObject<HTMLDivElement | null>
 };
 
 const ProjectContext = createContext<ProjectContext>({
@@ -22,6 +24,8 @@ const ProjectContext = createContext<ProjectContext>({
 	setShowProject: () => null,
 	currentProject: null,
 	setCurrentProject: () => null,
+	infoRef: { current: null },
+	contentsRef: { current: null },
 });
 
 export default ProjectContext;

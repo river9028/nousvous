@@ -15,7 +15,7 @@ type Card = {
     title: string;
     caption: string;
     thumb: string;
-    slides: string[];
+    slides: { type: string; src: string }[];
     'thumb-size': string;
     'background-color': string;
   };

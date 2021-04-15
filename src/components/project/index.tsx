@@ -1,63 +1,56 @@
 import React, { useContext } from 'react';
 import { ProjectContext } from '../../context';
+import { useCarouselRect } from '../../hooks';
 import {
   Wrap,
   Container,
   Contents,
-  Slider,
   Info,
   Title,
   Caption,
   Close,
 } from './styles/project';
 
-type Card = {
-  item: {
-    id: number;
-    title: string;
-    caption: string;
-    thumb: string;
-    slides: string[];
-    'thumb-size': string;
-    'background-color': string;
-  };
-};
-
 type Project = {
   Contents: React.FC;
-  Slider: React.FC;
   Info: React.FC;
   Close: React.FC;
 };
 
 const Project: React.FC & Project = ({ children, ...restProps }) => {
-  const { showProject } = useContext(ProjectContext);
+  const { contentsRef, showProject } = useContext(ProjectContext);
   return (
     <Wrap active={showProject} {...restProps}>
-      <Container>{children}</Container>
+      <Container ref={contentsRef}>{children}</Container>
     </Wrap>
   );
 };
 
 const ProjectContents: React.FC = ({ children, ...restProps }) => {
-  return <Contents {...restProps}>{children}</Contents>;
+  const { contentsRef, infoRef } = useContext(ProjectContext);
+  const size = useCarouselRect(infoRef);
+
+  return (
+    <Contents
+      contentSize={contentsRef.current?.clientHeight as number}
+      infoSize={size.height as number}
+      {...restProps}
+    >
+      {children}
+    </Contents>
+  );
 };
 Project.Contents = ProjectContents;
 
-const ProjectSlider: React.FC = ({ children, ...restProps }) => {
-  return <Slider {...restProps}>{children}</Slider>;
-};
-Project.Slider = ProjectSlider;
-
 const ProjectInfo: React.FC = ({ children, ...restProps }) => {
-  const { currentProject } = useContext(ProjectContext);
+  const { infoRef, currentProject } = useContext(ProjectContext);
 
   if (currentProject === null) {
     return <></>;
   }
 
   return (
-    <Info {...restProps}>
+    <Info ref={infoRef} {...restProps}>
       <div style={{ maxWidth: '700px', margin: '0 auto' }}>
         <Title>{currentProject.title}</Title>
         <Caption dangerouslySetInnerHTML={{ __html: currentProject.caption }} />

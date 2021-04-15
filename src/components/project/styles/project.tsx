@@ -1,7 +1,6 @@
 import styled, { css } from 'styled-components';
 
 export const Wrap = styled.div<{ active: boolean }>`
-  opacity: 0;
   position: fixed;
   top: 0px;
   left: 0px;
@@ -34,12 +33,15 @@ export const Container = styled.div`
   box-sizing: border-box;
 `;
 
-export const Contents = styled.div`
-  max-width: 700px;
-  margin: 0 auto;
+export const Contents = styled.div<{
+  contentSize: number;
+  infoSize: number;
+}>`
+  box-sizing: border-box;
+  // height: 80%;
+  // Container의 덜빠진 margin-top '40px'을 빼준다.
+  height: ${({ contentSize, infoSize }) => contentSize - infoSize - 40}px;
 `;
-
-export const Slider = styled.div``;
 
 export const Info = styled.div`
   text-align: center;

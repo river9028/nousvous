@@ -8,3 +8,4 @@ export { default as Header } from './header';
 export { default as Bio } from './bio';
 export { default as Projects } from './projects';
 export { default as Project } from './project';
+export { default as Carousel } from './carousel';

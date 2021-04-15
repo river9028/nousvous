@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import { useParams } from 'react-router';
-import { Bio, Header, Project, Projects } from '../components';
+import { Bio, Carousel, Header, Project, Projects } from '../components';
 import PersonInfo from '../fixtures/person-info';
 import ProjectsInfo from '../fixtures/projects';
 import { BioContext, ProjectContext } from '../context';
@@ -14,7 +14,7 @@ type Item = {
   title: string;
   caption: string;
   thumb: string;
-  slides: string[];
+  slides: { type: string; src: string }[];
   'thumb-size': string;
   'background-color': string;
 };
@@ -24,6 +24,9 @@ const Person = () => {
   const [currentProject, setCurrentProject] = useState<null | Item>(null);
   const [showBio, setShowBio] = useState(true);
   const [showProject, setShowProject] = useState(false);
+
+  const contentsRef = useRef<HTMLDivElement>(null);
+  const infoRef = useRef<HTMLDivElement>(null);
 
   console.log(
     `${to
@@ -64,6 +67,8 @@ const Person = () => {
           setShowProject,
           currentProject,
           setCurrentProject,
+          infoRef,
+          contentsRef,
         }}
       >
         <Projects>
@@ -75,7 +80,8 @@ const Person = () => {
         {currentProject && (
           <Project>
             <Project.Contents>
-              <Project.Slider />
+              <Carousel />
+
               <Project.Info />
               <Project.Close />
             </Project.Contents>
