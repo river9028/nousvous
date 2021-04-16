@@ -14,6 +14,7 @@ export const Wrap = styled.div<{ active: boolean }>`
   transition: all 0.2s ease;
   z-index: 999;
   box-sizing: border-box;
+  opacity: 0;
 
   ${({ active }) =>
     active &&

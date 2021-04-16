@@ -43,21 +43,27 @@ const Carousel: React.FC = ({ ...restProps }) => {
       <Slider {...settings}>
         {slides.map((slide) => (
           <div>
-            <Slide>
-              {slide.type === 'image' ? (
-                <Image
-                  size={size.height}
-                  src={`${process.env.REACT_APP_CDN_PUBLIC_URL}/${slide.src}`}
-                />
-              ) : (
-                <Video
-                  size={size.height}
-                  src={`${process.env.REACT_APP_CDN_PUBLIC_URL}/${slide.src}`}
-                  muted
-                  loop
-                  autoPlay
-                />
-              )}
+            <Slide
+              contentSize={contentsRef.current?.clientHeight as number}
+              infoSize={size.height as number}
+            >
+              <div>
+                {slide.type === 'image' ? (
+                  <Image
+                    size={size.height}
+                    src={`${process.env.REACT_APP_CDN_PUBLIC_URL}/${slide.src}`}
+                  />
+                ) : (
+                  <Video
+                    size={size.height}
+                    src={`${process.env.REACT_APP_CDN_PUBLIC_URL}/${slide.src}`}
+                    muted
+                    loop
+                    autoPlay
+                    playsInline
+                  />
+                )}
+              </div>
             </Slide>
           </div>
         ))}

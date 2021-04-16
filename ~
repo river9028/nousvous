@@ -1,0 +1,23 @@
+Installing dotenv
+Speed-up Image/Video Loading(CDN)
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+#
+# On branch master
+# Changes to be committed:
+#	modified:   .env
+#	modified:   package.json
+#	modified:   src/App.tsx
+#	modified:   src/components/bio/styles/bio.tsx
+#	modified:   src/components/carousel/index.tsx
+#	modified:   src/components/carousel/styles/carousel.tsx
+#	modified:   src/components/header/styles/header.tsx
+#	modified:   src/components/home/index.tsx
+#	modified:   src/components/popup/styles/popup.tsx
+#	modified:   src/components/press-button/index.tsx
+#	modified:   src/components/project/styles/project.tsx
+#	modified:   src/components/projects/index.tsx
+#	modified:   src/components/side-panel/styles/side-panel.tsx
+#	modified:   src/global-styles.ts
+#	modified:   yarn.lock
+#

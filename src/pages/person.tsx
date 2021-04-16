@@ -77,7 +77,7 @@ const Person = () => {
           ))}
         </Projects>
 
-        {currentProject && (
+        {currentProject ? (
           <Project>
             <Project.Contents>
               <Carousel />
@@ -86,6 +86,8 @@ const Person = () => {
               <Project.Close />
             </Project.Contents>
           </Project>
+        ) : (
+          <Project />
         )}
       </ProjectContext.Provider>
     </>

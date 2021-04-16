@@ -42,15 +42,18 @@ export const Container = styled.div`
 
   .slick-slide > div {
     max-width: 100%;
-    /* max-height: calc(100vh - 260px); */
   }
 `;
 
-export const Slide = styled.div`
-  max-width: 100%;
+export const Slide = styled.div<{
+  contentSize: number;
+  infoSize: number;
+}>`
   display: flex;
   justify-content: center;
   text-align: center;
+
+  // height: ${({ contentSize, infoSize }) => contentSize - infoSize - 40}px;
 `;
 
 export const Image = styled.img<{ size: number | undefined }>`

@@ -101,7 +101,7 @@ const HomeBackground: React.FC<Background> = ({
   // 바뀐 상태를 전달
   return isVideo ? (
     <Background active={showBackground} backgroundColor='#ebd9c9'>
-      <Video muted loop autoPlay>
+      <Video muted loop autoPlay playsInline>
         <source
           src={`${process.env.REACT_APP_CDN_PUBLIC_URL}/${src}`}
           type='video/mp4'
