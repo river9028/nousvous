@@ -1,8 +1,11 @@
 import React, { createContext, useContext, useState } from 'react';
 import { useHistory } from 'react-router';
+import * as dotenv from 'dotenv';
 import { Container, Caption, Logo, Image } from './styles/press-button';
 // 전역상수로 이용할 경로를 저장해 놓은 routes 파일을 가져와 'ROUTES'라는 이름으로 이용
 import * as ROUTES from '../../constants/routes';
+
+dotenv.config();
 
 type Logo = {
   src: string;
@@ -45,7 +48,7 @@ PressButton.Caption = PressButtonCaption;
 const PressButtonLogo: React.FC<Logo> = ({ src, children, ...restProps }) => {
   return (
     <Logo {...restProps}>
-      <Image src={`${process.env.PUBLIC_URL}/${src}`} />
+      <Image src={`${process.env.REACT_APP_CDN_PUBLIC_URL}/${src}`} />
     </Logo>
   );
 };

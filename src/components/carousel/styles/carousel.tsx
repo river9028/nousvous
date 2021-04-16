@@ -1,4 +1,7 @@
 import styled, { css } from 'styled-components';
+import * as dotenv from 'dotenv';
+
+dotenv.config();
 
 export const Container = styled.div`
   position: relative;
@@ -19,7 +22,7 @@ export const Container = styled.div`
   .slick-arrow {
     width: 30px;
     height: 30px;
-    background-image: url(${`${process.env.PUBLIC_URL}/images/icon/next.svg`});
+    background-image: url(${`${process.env.REACT_APP_CDN_PUBLIC_URL}/images/icon/next.svg`});
     background-position: center;
     background-repeat: no-repeat;
     background-color: transparent;

@@ -1,4 +1,5 @@
 import React, { useContext } from 'react';
+import * as dotenv from 'dotenv';
 import { ProjectContext } from '../../context';
 import {
   Container,
@@ -8,6 +9,8 @@ import {
   TitleWrap,
   Title,
 } from './styles/projects';
+
+dotenv.config();
 
 type Card = {
   item: {
@@ -42,7 +45,9 @@ const ProjectsCard: React.FC<Card> = ({ item, children, ...restProps }) => {
       {...restProps}
     >
       <Group>
-        <Thumbnail src={`${process.env.PUBLIC_URL}/${item.thumb}`} />
+        <Thumbnail
+          src={`${process.env.REACT_APP_CDN_PUBLIC_URL}/${item.thumb}`}
+        />
         <TitleWrap
           href=''
           onClick={(e) => {

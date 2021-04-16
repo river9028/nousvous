@@ -1,4 +1,7 @@
 import styled, { css } from 'styled-components';
+import * as dotenv from 'dotenv';
+
+dotenv.config();
 
 export const Wrap = styled.div<{ active: boolean }>`
   position: fixed;
@@ -71,7 +74,7 @@ export const Close = styled.button`
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
-  background-image: url(${`${process.env.PUBLIC_URL}/images/icon/close-navy.svg`});
+  background-image: url(${`${process.env.REACT_APP_CDN_PUBLIC_URL}/images/icon/close-navy.svg`});
   background-color: transparent;
   border: 0;
   filter: brightness(1) invert(0);

@@ -5,8 +5,11 @@ import {
   Route,
   Switch,
 } from 'react-router-dom';
+import * as dotenv from 'dotenv';
 import * as ROUTES from './constants/routes';
 import { Main, Person, Press } from './pages';
+
+dotenv.config();
 
 function App() {
   return (

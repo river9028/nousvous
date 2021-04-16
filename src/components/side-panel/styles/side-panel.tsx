@@ -1,4 +1,7 @@
 import styled, { css } from 'styled-components';
+import * as dotenv from 'dotenv';
+
+dotenv.config();
 
 type Group = {
   showSidePanel: boolean;
@@ -37,7 +40,7 @@ export const Close = styled.button`
   width: 20px;
   height: 20px;
   cursor: pointer;
-  background-image: url(${`${process.env.PUBLIC_URL}/images/icon/close-navy.svg`});
+  background-image: url(${`${process.env.REACT_APP_CDN_PUBLIC_URL}/images/icon/close-navy.svg`});
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;

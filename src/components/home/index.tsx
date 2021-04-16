@@ -1,4 +1,5 @@
 import React, { createContext, useContext, useState } from 'react';
+import * as dotenv from 'dotenv';
 import {
   Container,
   Group,
@@ -9,6 +10,8 @@ import {
   Video,
 } from './styles/home';
 import * as ROUTES from '../../constants/routes';
+
+dotenv.config();
 
 // Home 컴포넌트에서 사용되는 컨텍스트 타입을 정의
 type HomeContext = {
@@ -99,13 +102,16 @@ const HomeBackground: React.FC<Background> = ({
   return isVideo ? (
     <Background active={showBackground} backgroundColor='#ebd9c9'>
       <Video muted loop autoPlay>
-        <source src={`${process.env.PUBLIC_URL}/${src}`} type='video/mp4' />
+        <source
+          src={`${process.env.REACT_APP_CDN_PUBLIC_URL}/${src}`}
+          type='video/mp4'
+        />
       </Video>
     </Background>
   ) : (
     <Background
       active={showBackground}
-      src={`${process.env.PUBLIC_URL}/${src}`}
+      src={`${process.env.REACT_APP_CDN_PUBLIC_URL}/${src}`}
       {...restProps}
     >
       {children}

@@ -1,11 +1,14 @@
 import React, { useContext, useEffect, useRef } from 'react';
 import Slider from 'react-slick';
+import * as dotenv from 'dotenv';
 import { ProjectContext } from '../../context';
 import { Container, Slide, Image, Video } from './styles/carousel';
 
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import { useCarouselRect } from '../../hooks';
+
+dotenv.config();
 
 type Item = {
   id: number;
@@ -44,12 +47,12 @@ const Carousel: React.FC = ({ ...restProps }) => {
               {slide.type === 'image' ? (
                 <Image
                   size={size.height}
-                  src={`${process.env.PUBLIC_URL}/${slide.src}`}
+                  src={`${process.env.REACT_APP_CDN_PUBLIC_URL}/${slide.src}`}
                 />
               ) : (
                 <Video
                   size={size.height}
-                  src={`${process.env.PUBLIC_URL}/${slide.src}`}
+                  src={`${process.env.REACT_APP_CDN_PUBLIC_URL}/${slide.src}`}
                   muted
                   loop
                   autoPlay

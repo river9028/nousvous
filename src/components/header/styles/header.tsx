@@ -1,4 +1,7 @@
 import styled from 'styled-components';
+import * as dotenv from 'dotenv';
+
+dotenv.config();
 
 export const Container = styled.div`
   position: absolute;
@@ -55,7 +58,7 @@ export const Contact = styled.a`
     content: '';
     width: 25px;
     height: 23px;
-    background-image: url(${`${process.env.PUBLIC_URL}/images/icon/email.svg`});
+    background-image: url(${`${process.env.REACT_APP_CDN_PUBLIC_URL}/images/icon/email.svg`});
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
