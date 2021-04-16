@@ -4,6 +4,7 @@ import { Bio, Carousel, Header, Project, Projects } from '../components';
 import PersonInfo from '../fixtures/person-info';
 import ProjectsInfo from '../fixtures/projects';
 import { BioContext, ProjectContext } from '../context';
+import { useInfiniteScroll } from '../hooks';
 
 type Params = {
   to: string;
@@ -36,7 +37,7 @@ const Person = () => {
 
   /*   type PersonInfoType =
     | 'together'
-    | 'jay cover'
+    | 'jay cover'	
     | 'nicolas burrows'
     | 'william luz'; */
 
@@ -44,7 +45,7 @@ const Person = () => {
 
   const person = PersonInfo[to! as PersonInfoType];
   // const projects = ProjectsInfo[to! as PersonInfoType];
-  const projects = ProjectsInfo.together;
+  const projects = useInfiniteScroll(ProjectsInfo.together);
 
   return (
     <>
