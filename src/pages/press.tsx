@@ -1,7 +1,22 @@
 import React, { useState, useEffect } from 'react';
-import { PressHeader, StudioButton } from '../components';
+import { PressHeader, Products, StudioButton } from '../components';
+import productsInfo from '../fixtures/products';
+import sectionFilter from '../utils/section-filter';
+
+type ProductType = {
+  id: 1;
+  section: string;
+  pname: string;
+  price: number;
+  'shipping-charge': { UK: number; Europe: number; Worldwide: number };
+  description: string;
+  'img-url': string;
+  stock: number;
+};
 
 const Press = () => {
+  const products = sectionFilter(productsInfo as ProductType[]);
+
   return (
     <>
       <PressHeader>
@@ -29,7 +44,6 @@ const Press = () => {
         </PressHeader.Right>
       </PressHeader>
 
-      <div>Studio Button</div>
       <StudioButton>
         <StudioButton.Caption>nous vous studio</StudioButton.Caption>
         <StudioButton.Logo
@@ -38,7 +52,19 @@ const Press = () => {
         />
       </StudioButton>
 
-      {/* <div>Products</div> */}
+      <Products>
+        {products.book.data.concat(products.etc.data).map((item) => (
+          <Products.Card item={item} />
+        ))}
+        {products.prints.data.map((item) => (
+          <Products.Card item={item} />
+        ))}
+        {products.records.data.map((item) => (
+          <Products.Card item={item} />
+        ))}
+
+        {/* <Products.Title>{products.records.title}</Products.Title> */}
+      </Products>
     </>
   );
 };

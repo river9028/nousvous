@@ -12,3 +12,4 @@ export { default as Carousel } from './carousel';
 
 export { default as PressHeader } from './press-header';
 export { default as StudioButton } from './studio-button';
+export { default as Products } from './products';

@@ -7,7 +7,7 @@ import {
 } from 'react-router-dom';
 import * as dotenv from 'dotenv';
 import * as ROUTES from './constants/routes';
-import { Main, Person, Press } from './pages';
+import { Main, Person, Press, Info, Product } from './pages';
 
 dotenv.config();
 
@@ -22,6 +22,14 @@ function App() {
         {/* path parameter를 이용해 동적 라우팅 */}
         <Route exact path={`${ROUTES.PERSON}/:to`}>
           <Person />
+        </Route>
+
+        <Route exact path={ROUTES.INFO}>
+          <Info />
+        </Route>
+
+        <Route exact path={`${ROUTES.PRODUCT}/:product-name`}>
+          <Product />
         </Route>
 
         <Route exact path={ROUTES.MAIN}>

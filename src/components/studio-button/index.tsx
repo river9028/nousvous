@@ -55,7 +55,8 @@ const StudioButtonLogo: React.FC<Logo> = ({ src, children, ...restProps }) => {
     <Logo {...restProps}>
       <Image
         showLoading={showLoading}
-        src={`${process.env.REACT_APP_CDN_PUBLIC_URL}/${src}`}
+        // src={`${process.env.REACT_APP_CDN_PUBLIC_URL}/${src}`}
+        src={`${process.env.PUBLIC_URL}/${src}`}
       />
     </Logo>
   );

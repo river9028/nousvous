@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components';
 
 export const Container = styled.div<{ showLoading: boolean }>`
-  position: absolute;
+  position: fixed;
   top: 0px;
   right: 0px;
   width: 35px;
