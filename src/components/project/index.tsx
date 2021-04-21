@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { ProjectContext } from '../../context';
-import { useCarouselRect } from '../../hooks';
+import { useElementSize } from '../../hooks';
 import {
   Wrap,
   Container,
@@ -28,7 +28,7 @@ const Project: React.FC & Project = ({ children, ...restProps }) => {
 
 const ProjectContents: React.FC = ({ children, ...restProps }) => {
   const { contentsRef, infoRef } = useContext(ProjectContext);
-  const size = useCarouselRect(infoRef);
+  const size = useElementSize(infoRef);
 
   return (
     <Contents

@@ -9,3 +9,6 @@ export { default as Bio } from './bio';
 export { default as Projects } from './projects';
 export { default as Project } from './project';
 export { default as Carousel } from './carousel';
+
+export { default as PressHeader } from './press-header';
+export { default as StudioButton } from './studio-button';

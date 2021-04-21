@@ -1,2 +1,2 @@
-export { default as useCarouselRect } from './useCarouselRect';
+export { default as useElementSize } from './useElementSize';
 export { default as useInfiniteScroll } from './useInfiniteScroll';

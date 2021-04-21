@@ -6,7 +6,7 @@ import { Container, Slide, Image, Video } from './styles/carousel';
 
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-import { useCarouselRect } from '../../hooks';
+import { useElementSize } from '../../hooks';
 
 dotenv.config();
 
@@ -23,7 +23,7 @@ type Item = {
 const Carousel: React.FC = ({ ...restProps }) => {
   const { infoRef, contentsRef, currentProject } = useContext(ProjectContext);
 
-  const size = useCarouselRect(infoRef);
+  const size = useElementSize(infoRef);
 
   if (currentProject == null) {
     return <></>;

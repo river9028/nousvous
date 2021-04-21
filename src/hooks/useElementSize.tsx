@@ -4,34 +4,37 @@ interface Size {
   width: number | undefined;
   height: number | undefined;
 }
-// Hook
-const useCarouselRect = (
+
+// 현재 캐러셀이 있는 컨텐츠의 높이를 얻기 위해 만든 hooks
+// 초반에 생각한 방법과 달라지면서 이름이 애매해졌다 😢
+
+// 사용하는 곳에서 ref를 받아와
+const useElementSize = (
   ref: React.MutableRefObject<HTMLDivElement | null>,
 ): Size => {
-  // Initialize state with undefined width/height so server and client renders match
-  // Learn more here: https://joshwcomeau.com/react/the-perils-of-rehydration/
-
+  // ref의 브라우저 실시간 사이즈의 상태를 담을 상태
   const [refSize, setRefSize] = useState<Size>({
     width: undefined,
     height: undefined,
   });
   useEffect(() => {
-    // Handler to call on window resize
+    // 사이즈가 바뀔 때 ref의 실제 사이즈로 상태를 업데이트 해준다.
     function handleResize() {
-      // Set window width/height to state
       setRefSize({
         width: ref.current?.clientWidth,
         height: ref.current?.clientHeight,
       });
     }
-    // Add event listener
+
+    // 브라우저가 'resize' 될 때, 해당 함수를 실행.
     window.addEventListener('resize', handleResize);
-    // Call handler right away so state gets updated with initial window size
     handleResize();
-    // Remove event listener on cleanup
+    // 언마운트시, 해당 함수를 삭제.
     return () => window.removeEventListener('resize', handleResize);
-  }, [ref]); // Empty array ensures that effect is only run on mount
+  }, [ref]);
+
+  // 사용하는 곳에 상태 반환
   return refSize;
 };
 
-export default useCarouselRect;
+export default useElementSize;

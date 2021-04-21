@@ -1,13 +1,17 @@
-import React, { useRef, useState } from 'react';
+import React from 'react';
 import { useParams } from 'react-router';
-import { Bio, Carousel, Header, Project, Projects } from '../components';
+
 import PersonInfo from '../fixtures/person-info';
 import ProjectsInfo from '../fixtures/projects';
-import { BioContext, ProjectContext } from '../context';
+
 import { useInfiniteScroll } from '../hooks';
+import { PersonContents, PersonHeader } from '../containers';
+
+// 오브젝트의 타입의 키 값을 유니온 타입으로 만듦.
+type PersonInfoType = keyof typeof PersonInfo;
 
 type Params = {
-  to: string;
+  to: PersonInfoType;
 };
 
 type Item = {
@@ -21,13 +25,8 @@ type Item = {
 };
 
 const Person = () => {
+  // useParams를 이용해 URL parameter를 가져온다.
   const { to } = useParams<Params>()!;
-  const [currentProject, setCurrentProject] = useState<null | Item>(null);
-  const [showBio, setShowBio] = useState(true);
-  const [showProject, setShowProject] = useState(false);
-
-  const contentsRef = useRef<HTMLDivElement>(null);
-  const infoRef = useRef<HTMLDivElement>(null);
 
   console.log(
     `${to
@@ -41,56 +40,19 @@ const Person = () => {
     | 'nicolas burrows'
     | 'william luz'; */
 
-  type PersonInfoType = keyof typeof PersonInfo;
+  // PersonInfo 안에 to에 해당하는 값을 가져온다.
+  const person = PersonInfo[to];
 
-  const person = PersonInfo[to! as PersonInfoType];
-  // const projects = ProjectsInfo[to! as PersonInfoType];
+  // useInfiniteScroll를 이용해 ProjectsInfo 안에 to에 해당하는 값을 가져온다.
+  // 현재는 together에 해당 하는 값만 존재해 그 값만 불러온다.
+  // const projects = ProjectsInfo[to];
   const projects = useInfiniteScroll(ProjectsInfo.together);
 
   return (
     <>
-      <BioContext.Provider value={{ showBio, setShowBio }}>
-        <Header>
-          <Header.Back>Back</Header.Back>
-          <Header.Profile>Bio</Header.Profile>
-          <Header.Contact>{person.email}</Header.Contact>
-        </Header>
+      <PersonHeader person={person} />
 
-        <Bio>
-          <Bio.Close />
-          <Bio.Text bio={person.bio} />
-        </Bio>
-      </BioContext.Provider>
-
-      <ProjectContext.Provider
-        value={{
-          showProject,
-          setShowProject,
-          currentProject,
-          setCurrentProject,
-          infoRef,
-          contentsRef,
-        }}
-      >
-        <Projects>
-          {projects.map((item: Item) => (
-            <Projects.Card item={item} />
-          ))}
-        </Projects>
-
-        {currentProject ? (
-          <Project>
-            <Project.Contents>
-              <Carousel />
-
-              <Project.Info />
-              <Project.Close />
-            </Project.Contents>
-          </Project>
-        ) : (
-          <Project />
-        )}
-      </ProjectContext.Provider>
+      <PersonContents projects={projects} />
     </>
   );
 };
