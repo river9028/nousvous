@@ -11,17 +11,17 @@ type ProductType = {
 
 export default function sectionFilter(products: ProductType[]) {
 	return {
-		records: {
-			title: 'Records',
-			data: products?.filter((item) => item.section === 'record'),
-		},
-		prints: {
-			title: 'Prints',
-			data: products?.filter((item) => item.section === 'print'),
-		},
 		book: {
 			title: 'Books',
 			data: products?.filter((item) => item.section === 'book'),
+		},
+		print: {
+			title: 'Prints',
+			data: products?.filter((item) => item.section === 'print'),
+		},
+		record: {
+			title: 'Records',
+			data: products?.filter((item) => item.section === 'record'),
 		},
 		etc: {
 			title: 'ETC',

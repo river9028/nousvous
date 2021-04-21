@@ -13,7 +13,7 @@ type PressHeader = {
   Left: React.FC;
   Center: React.FC;
   Right: React.FC;
-  Link: React.FC;
+  Link: React.FC<{ handleLink?: () => void }>;
   Image: React.FC<{ src: string }>;
 };
 
@@ -36,8 +36,16 @@ const PressHeaderRight: React.FC = ({ children, ...restProps }) => {
 };
 PressHeader.Right = PressHeaderRight;
 
-const PressHeaderLink: React.FC = ({ children, ...restProps }) => {
-  return <Link {...restProps}>{children}</Link>;
+const PressHeaderLink: React.FC<{ handleLink?: () => void }> = ({
+  handleLink,
+  children,
+  ...restProps
+}) => {
+  return (
+    <Link onClick={handleLink} {...restProps}>
+      {children}
+    </Link>
+  );
 };
 PressHeader.Link = PressHeaderLink;
 

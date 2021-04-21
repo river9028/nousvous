@@ -7,6 +7,7 @@ import {
   Thumbnail,
   Title,
   Text,
+  CardGroup,
 } from './styles/products';
 
 dotenv.config();
@@ -29,6 +30,7 @@ type Card = {
 type Products = {
   Card: React.FC<Card>;
   Title: React.FC;
+  CardGroup: React.FC;
 };
 
 const Products: React.FC & Products = ({ children, ...restProps }) => {
@@ -43,6 +45,11 @@ const ProductsTitle: React.FC = ({ children, ...restProps }) => {
   return <Title {...restProps}>{children}</Title>;
 };
 Products.Title = ProductsTitle;
+
+const ProductsCardGroup: React.FC = ({ children, ...restProps }) => {
+  return <CardGroup {...restProps}>{children}</CardGroup>;
+};
+Products.CardGroup = ProductsCardGroup;
 
 const ProductsCard: React.FC<Card> = ({ item, children, ...restProps }) => {
   return (

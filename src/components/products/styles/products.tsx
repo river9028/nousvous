@@ -7,7 +7,7 @@ export const Container = styled.div<{ active: boolean }>`
   padding: 25px;
   /* font-size: 0px; */
   line-height: 0px;
-  padding-top: 50px;
+  padding-top: 100px;
   transition: all 0.2s ease;
   transition-delay: 0.3s;
   box-sizing: border-box;
@@ -15,8 +15,9 @@ export const Container = styled.div<{ active: boolean }>`
   @media (min-width: 45em) {
     margin-right: 50px;
     padding: 40px;
-    padding-top: 60px;
+    padding-top: 100px;
   }
+
   ${({ active }) =>
     active &&
     css`
@@ -50,12 +51,6 @@ export const Text = styled.p`
   }
 `;
 
-export const CardGroup = styled.div`
-  border-bottom: 2px solid #111;
-  padding-bottom: 30px;
-  margin-bottom: 30px;
-`;
-
 export const Card = styled.div`
   display: inline-block;
   width: 100%;
@@ -72,5 +67,15 @@ export const Card = styled.div`
 
   @media (min-width: 800px) {
     width: 25%;
+  }
+`;
+
+export const CardGroup = styled.div`
+  border-bottom: 2px solid #111;
+  padding-bottom: 30px;
+  margin-bottom: 30px;
+
+  &:last-of-type {
+    border-bottom: 0;
   }
 `;

@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
+import { useHistory } from 'react-router';
 import { PressHeader, Products, StudioButton } from '../components';
 import productsInfo from '../fixtures/products';
 import sectionFilter from '../utils/section-filter';
+import * as ROUTES from '../constants/routes';
 
 type ProductType = {
   id: 1;
@@ -15,6 +17,9 @@ type ProductType = {
 };
 
 const Press = () => {
+  const [section, setSection] = useState<'' | keyof typeof products>('');
+  const history = useHistory();
+
   const products = sectionFilter(productsInfo as ProductType[]);
 
   return (
@@ -23,15 +28,26 @@ const Press = () => {
         <PressHeader.Left>
           <div>independent publishers of</div>
           <div>
-            <PressHeader.Link>records</PressHeader.Link>
+            <PressHeader.Link handleLink={() => setSection('record')}>
+              records
+            </PressHeader.Link>
             ,&nbsp;
-            <PressHeader.Link>prints</PressHeader.Link>
+            <PressHeader.Link handleLink={() => setSection('print')}>
+              prints
+            </PressHeader.Link>
             &nbsp;&&nbsp;
-            <PressHeader.Link>books</PressHeader.Link>
+            <PressHeader.Link handleLink={() => setSection('book')}>
+              books
+            </PressHeader.Link>
           </div>
         </PressHeader.Left>
         <PressHeader.Center>
-          <PressHeader.Link>
+          <PressHeader.Link
+            handleLink={() => {
+              setSection('');
+              history.push(ROUTES.PRESS);
+            }}
+          >
             <PressHeader.Image
               src={`${process.env.REACT_APP_CDN_PUBLIC_URL}/images/logo/nvpress.svg`}
             />
@@ -43,7 +59,6 @@ const Press = () => {
           <PressHeader.Link>checkout ({0})</PressHeader.Link>
         </PressHeader.Right>
       </PressHeader>
-
       <StudioButton>
         <StudioButton.Caption>nous vous studio</StudioButton.Caption>
         <StudioButton.Logo
@@ -52,18 +67,28 @@ const Press = () => {
         />
       </StudioButton>
 
-      <Products>
-        {products.book.data.concat(products.etc.data).map((item) => (
-          <Products.Card item={item} />
-        ))}
-        {products.prints.data.map((item) => (
-          <Products.Card item={item} />
-        ))}
-        {products.records.data.map((item) => (
-          <Products.Card item={item} />
-        ))}
+      {/* {products.records.data.map((item) => (
+        <Products.Card item={item} />
+      ))} */}
 
-        {/* <Products.Title>{products.records.title}</Products.Title> */}
+      <Products>
+        {section === '' ? (
+          (Object.keys(products) as Array<keyof typeof products>).map((key) => (
+            <Products.CardGroup>
+              {products[key].data.map((item) => (
+                <Products.Card item={item} />
+              ))}
+            </Products.CardGroup>
+          ))
+        ) : (
+          <>
+            {/* <Products.Title>{products[section].title}</Products.Title> */}
+
+            {products[section].data.map((item) => (
+              <Products.Card item={item} />
+            ))}
+          </>
+        )}
       </Products>
     </>
   );
