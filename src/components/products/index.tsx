@@ -57,7 +57,11 @@ const ProductsCard: React.FC<Card> = ({ item, children, ...restProps }) => {
       <Group>
         <Thumbnail src={`${process.env.PUBLIC_URL}/${item['img-url']}`} />
         <Text>{item.pname}</Text>
-        <Text>£ {item.price}</Text>
+        {item.stock !== 0 ? (
+          <Text>£ {item.price}</Text>
+        ) : (
+          <Text style={{ color: '#e85242' }}>Sold Out</Text>
+        )}
       </Group>
       {children}
     </Card>

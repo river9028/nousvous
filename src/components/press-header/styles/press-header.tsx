@@ -30,6 +30,9 @@ export const Container = styled.div`
     width: calc(100vw - 50px);
   }
 `;
+export const Link = styled.a`
+  cursor: pointer;
+`;
 
 export const Left = styled.div`
   border: 0;
@@ -37,6 +40,10 @@ export const Left = styled.div`
 
   @media (max-width: 50em) {
     display: none;
+  }
+
+  ${Link}:hover {
+    text-decoration: underline;
   }
 `;
 
@@ -54,10 +61,10 @@ export const Center = styled.div`
   }
 `;
 
-export const Right = styled.div``;
-
-export const Link = styled.a`
-  cursor: pointer;
+export const Right = styled.div`
+  ${Link}:hover {
+    color: grey;
+  }
 `;
 
 export const Image = styled.img`
