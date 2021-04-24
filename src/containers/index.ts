@@ -4,3 +4,4 @@ export { default as PersonContents } from './person-contents';
 export { default as PressHeader } from './press-heder';
 export { default as StudioButton } from './studio-button';
 export { default as Info } from './info';
+export { default as ProductContents } from './product';

@@ -10,7 +10,7 @@ interface Size {
 
 // 사용하는 곳에서 ref를 받아와
 const useElementSize = (
-  ref: React.MutableRefObject<HTMLDivElement | null>,
+  ref: React.MutableRefObject<HTMLDivElement | null> | undefined,
 ): Size => {
   // ref의 브라우저 실시간 사이즈의 상태를 담을 상태
   const [refSize, setRefSize] = useState<Size>({
@@ -21,8 +21,8 @@ const useElementSize = (
     // 사이즈가 바뀔 때 ref의 실제 사이즈로 상태를 업데이트 해준다.
     function handleResize() {
       setRefSize({
-        width: ref.current?.clientWidth,
-        height: ref.current?.clientHeight,
+        width: ref?.current?.clientWidth ?? undefined,
+        height: ref?.current?.clientHeight ?? undefined,
       });
     }
 

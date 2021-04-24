@@ -1,30 +1,17 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Products } from '../components';
-import productsInfo from '../fixtures/products';
-import sectionFilter from '../utils/section-filter';
 import { StudioButton, PressHeader, Info } from '../containers';
 import PressContext from '../context/press';
 
-type ProductType = {
-  id: 1;
-  section: string;
-  pname: string;
-  price: number;
-  'shipping-charge': { UK: number; Europe: number; Worldwide: number };
-  description: string;
-  'img-url': string;
-  stock: number;
-};
-
 const Press = () => {
-  const [section, setSection] = useState<'' | 'info' | keyof typeof products>(
-    '',
-  );
+  const { products, section, setSection } = useContext(PressContext);
 
-  const products = sectionFilter(productsInfo as ProductType[]);
+  if (products == null) {
+    return <></>;
+  }
 
   return (
-    <PressContext.Provider value={{ section, setSection }}>
+    <>
       <PressHeader />
 
       <StudioButton />
@@ -34,7 +21,7 @@ const Press = () => {
           (Object.keys(products) as Array<keyof typeof products>).map((key) => (
             <Products.CardGroup>
               {products[key].data.map((item) => (
-                <Products.Card item={item} />
+                <Products.Card to={item.pname} item={item} />
               ))}
             </Products.CardGroup>
           ))}
@@ -42,10 +29,12 @@ const Press = () => {
           <Info />
         ) : (
           section !== '' &&
-          products[section].data.map((item) => <Products.Card item={item} />)
+          products[section].data.map((item) => (
+            <Products.Card to={item.pname} item={item} />
+          ))
         )}
       </Products>
-    </PressContext.Provider>
+    </>
   );
 };
 

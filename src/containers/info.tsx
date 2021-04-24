@@ -85,7 +85,7 @@ const Stockists = [
   },
 ];
 
-const InfoContainer = () => {
+const ProductContainer = () => {
   return (
     <>
       <Info>
@@ -129,4 +129,4 @@ const InfoContainer = () => {
   );
 };
 
-export default InfoContainer;
+export default ProductContainer;

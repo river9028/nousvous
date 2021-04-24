@@ -9,11 +9,12 @@ import {
   Text,
   CardGroup,
 } from './styles/products';
+import * as ROUTES from '../../constants/routes';
 
 dotenv.config();
 
 type ProductType = {
-  id: 1;
+  name: string;
   section: string;
   pname: string;
   price: number;
@@ -25,6 +26,7 @@ type ProductType = {
 
 type Card = {
   item: ProductType;
+  to: string;
 };
 
 type Products = {
@@ -34,11 +36,7 @@ type Products = {
 };
 
 const Products: React.FC & Products = ({ children, ...restProps }) => {
-  return (
-    <Container active={false} {...restProps}>
-      {children}
-    </Container>
-  );
+  return <Container {...restProps}>{children}</Container>;
 };
 
 const ProductsTitle: React.FC = ({ children, ...restProps }) => {
@@ -51,12 +49,12 @@ const ProductsCardGroup: React.FC = ({ children, ...restProps }) => {
 };
 Products.CardGroup = ProductsCardGroup;
 
-const ProductsCard: React.FC<Card> = ({ item, children, ...restProps }) => {
+const ProductsCard: React.FC<Card> = ({ to, item, children, ...restProps }) => {
   return (
-    <Card {...restProps}>
+    <Card to={`${ROUTES.PRODUCT}/${to}`} {...restProps}>
       <Group>
         <Thumbnail src={`${process.env.PUBLIC_URL}/${item['img-url']}`} />
-        <Text>{item.pname}</Text>
+        <Text>{item.name}</Text>
         {item.stock !== 0 ? (
           <Text>£ {item.price}</Text>
         ) : (

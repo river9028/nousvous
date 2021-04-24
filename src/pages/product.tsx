@@ -1,10 +1,19 @@
 import React from 'react';
 import { useParams } from 'react-router';
+import { ProductContents, PressHeader, StudioButton } from '../containers';
 
 const Product = () => {
-  const { to } = useParams<{ to: string }>()!;
+  const { pname } = useParams<{ pname: string }>()!;
+  console.log(pname);
 
-  return <div>Product Page</div>;
+  return (
+    <>
+      <PressHeader />
+      <StudioButton />
+
+      <ProductContents />
+    </>
+  );
 };
 
 export default Product;

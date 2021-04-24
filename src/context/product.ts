@@ -1,6 +1,6 @@
 import React, { createContext } from 'react';
 
-type Item = {
+type Product = {
 };
 
 type ProductContext = {

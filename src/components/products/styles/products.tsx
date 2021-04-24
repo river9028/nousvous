@@ -1,6 +1,7 @@
 import styled, { css } from 'styled-components';
+import { Link as ReachRouterLink } from 'react-router-dom';
 
-export const Container = styled.div<{ active: boolean }>`
+export const Container = styled.div`
   margin-right: 30px;
 
   text-align: center;
@@ -17,14 +18,6 @@ export const Container = styled.div<{ active: boolean }>`
     padding: 40px;
     padding-top: 100px;
   }
-
-  ${({ active }) =>
-    active &&
-    css`
-      transform: scale(0.95);
-      opacity: 0;
-      transition-delay: 0s;
-    `}
 `;
 
 export const Group = styled.div`
@@ -51,8 +44,9 @@ export const Text = styled.p`
   }
 `;
 
-export const Card = styled.div`
+export const Card = styled(ReachRouterLink)`
   display: inline-block;
+  color: #000;
   width: 100%;
 
   :hover {

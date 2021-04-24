@@ -1,8 +1,8 @@
 export default [
 	{
-		id: 1,
+		name: 'Falk',
 		section: 'book',
-		pname: 'Falk',
+		pname: 'falk',
 		price: 12,
 		'shipping-charge': { 'UK': 12, 'Europe': 5, 'Worldwide': 7 },
 		description: `<p>A compendium of three new short form books by each member of Nous Vous to accompany the show ‘Folk’ at Utrecht, Tokyo, October 2019.</p>
@@ -20,9 +20,9 @@ export default [
 		stock: 7,
 	},
 	{
-		id: 2,
+		name: 'We Start, We Finish',
 		section: 'book',
-		pname: 'We Start, We Finish',
+		pname: 'we-start-we-finish',
 		price: 3,
 		'shipping-charge': { 'UK': 1, 'Europe': 2, 'Worldwide': 3 },
 		description: `<p>A collection of ‘Dances’ by William Luz, writings that first appeared in ‘The Smudge Magazine’ 2017-2018.<br>
@@ -35,9 +35,9 @@ export default [
 		stock: 3,
 	},
 	{
-		id: 3,
+		name: 'The Elephant Hotel',
 		section: 'book',
-		pname: 'The Elephant Hotel',
+		pname: 'the-elephant-hotel',
 		price: 12,
 		'shipping-charge': { 'UK': 3, 'Europe': 5, 'Worldwide': 7 },
 		description: `<p>Have you ever wondered what it would be like if there was a hotel for elephants, run by elephants?</p>
@@ -53,7 +53,7 @@ export default [
 		stock: 5,
 	},
 	{
-		id: 4,
+		name: 'there-still-are-mysteries-2',
 		section: 'book',
 		pname: 'There Still Are Mysteries',
 		price: 14,
@@ -74,7 +74,7 @@ export default [
 		stock: 10,
 	},
 	{
-		id: 5,
+		name: 'heavyweight-tote',
 		section: 'etc',
 		pname: 'Heavyweight Tote',
 		price: 8,
@@ -84,7 +84,7 @@ export default [
 		stock: 0,
 	},
 	{
-		id: 6,
+		name: 'lux-2',
 		section: 'print',
 		pname: 'Lux 2',
 		price: 20,
@@ -96,7 +96,7 @@ export default [
 		stock: 10,
 	},
 	{
-		id: 7,
+		name: 'Lux-1',
 		section: 'print',
 		pname: 'Lux 1',
 		price: 20,
@@ -108,7 +108,7 @@ export default [
 		stock: 10,
 	},
 	{
-		id: 8,
+		name: 'there-still-are-mysteries',
 		section: 'record',
 		pname: 'There Still Are Mysteries',
 		price: 14,

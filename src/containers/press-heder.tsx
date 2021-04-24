@@ -1,25 +1,43 @@
 import React, { useContext } from 'react';
+import { useHistory } from 'react-router';
 import { PressHeader } from '../components';
-import * as ROUTES from '../constants/routes';
 import PressContext from '../context/press';
+import * as ROUTES from '../constants/routes';
 
 const PressHeaderContainer = () => {
-  const { setSection } = useContext(PressContext);
+  const { section, setSection } = useContext(PressContext);
+  const history = useHistory();
+
   return (
     <>
       <PressHeader>
         <PressHeader.Left>
           <div>independent publishers of</div>
           <div>
-            <PressHeader.Link handleLink={() => setSection('record')}>
+            <PressHeader.Link
+              handleLink={() => {
+                history.push(ROUTES.PRESS);
+                setSection('record');
+              }}
+            >
               records
             </PressHeader.Link>
             ,&nbsp;
-            <PressHeader.Link handleLink={() => setSection('print')}>
+            <PressHeader.Link
+              handleLink={() => {
+                history.push(ROUTES.PRESS);
+                setSection('print');
+              }}
+            >
               prints
             </PressHeader.Link>
             &nbsp;&&nbsp;
-            <PressHeader.Link handleLink={() => setSection('book')}>
+            <PressHeader.Link
+              handleLink={() => {
+                history.push(ROUTES.PRESS);
+                setSection('book');
+              }}
+            >
               books
             </PressHeader.Link>
           </div>
@@ -27,6 +45,7 @@ const PressHeaderContainer = () => {
         <PressHeader.Center>
           <PressHeader.Link
             handleLink={() => {
+              history.push(ROUTES.PRESS);
               setSection('');
             }}
           >

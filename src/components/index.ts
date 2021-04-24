@@ -14,3 +14,4 @@ export { default as PressHeader } from './press-header';
 export { default as StudioButton } from './studio-button';
 export { default as Products } from './products';
 export { default as Info } from './info';
+export { default as Product } from './product';

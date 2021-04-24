@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useContext, useRef, useState } from 'react';
 import { Carousel, Project, Projects } from '../components';
 import ProjectsInfo from '../fixtures/projects';
 
@@ -50,7 +50,11 @@ const PersonContents: React.FC<PersonContentsProps<typeof ProjectsInfo>> = ({
       {currentProject ? (
         <Project>
           <Project.Contents>
-            <Carousel />
+            <Carousel
+              infoRef={infoRef}
+              contentsRef={contentsRef}
+              currentContent={currentProject}
+            />
 
             <Project.Info />
             <Project.Close />

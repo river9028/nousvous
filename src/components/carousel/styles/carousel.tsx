@@ -58,10 +58,10 @@ export const Slide = styled.div<{
 
 export const Image = styled.img<{ size: number | undefined }>`
   max-width: 100%;
-  max-height: ${({ size }) => (size ? `calc(100vh - ${size}px)` : '0')};
+  max-height: ${({ size }) => (size ? `calc(100vh - ${size}px)` : 'inherit')};
 `;
 
 export const Video = styled.video<{ size: number | undefined }>`
   max-width: 100%;
-  max-height: ${({ size }) => (size ? `calc(100vh - ${size}px)` : '0')};
+  max-height: ${({ size }) => (size ? `calc(100vh - ${size}px)` : 'inherit')};
 `;
