@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.js": "/nousvous/static/js/main.df1d7964.chunk.js",
-    "main.js.map": "/nousvous/static/js/main.df1d7964.chunk.js.map",
+    "main.js": "/nousvous/static/js/main.b944b73c.chunk.js",
+    "main.js.map": "/nousvous/static/js/main.b944b73c.chunk.js.map",
     "runtime-main.js": "/nousvous/static/js/runtime-main.7f004151.js",
     "runtime-main.js.map": "/nousvous/static/js/runtime-main.7f004151.js.map",
     "static/css/2.ca6c0b91.chunk.css": "/nousvous/static/css/2.ca6c0b91.chunk.css",
@@ -16,6 +16,6 @@
     "static/js/runtime-main.7f004151.js",
     "static/css/2.ca6c0b91.chunk.css",
     "static/js/2.2f0f26dc.chunk.js",
-    "static/js/main.df1d7964.chunk.js"
+    "static/js/main.b944b73c.chunk.js"
   ]
 }
