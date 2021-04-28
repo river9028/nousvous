@@ -31,7 +31,6 @@ function App() {
   );
 
   const products = sectionFilter(productsInfo as ProductType[]);
-  console.log(process.env.PUBLIC_URL);
   return (
     <PressContext.Provider value={{ products, section, setSection }}>
       <Router basename={process.env.PUBLIC_URL}>
